@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "bd1a7504-6527-4a7b-969f-5d01ac0b8ac7",
+		"name": "Restaurant app collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assign Table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\": true,\n    \"table\": 2,\n    \"guests\": [\n        {\n            \"name\": \"Mike\",\n            \"seat\": 1\n        },\n        {\n            \"name\": \"Jane\",\n            \"seat\": 2\n        },\n        {\n            \"name\": \"David\",\n            \"seat\": 3\n        },\n        {\n            \"name\": \"Ola\",\n            \"seat\": 4\n        }\n    ] \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9093/assign-table",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9093",
+					"path": [
+						"assign-table"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"seats\": [\n            1,\n            2,\n            3,\n            4\n        ],\n        \"shared\": true,\n        \"orders\": [\n            {\n                \"dish\": \"pizza\",\n                \"cost\": 10.54\n            }\n        ]\n    },\n    {\n        \"seats\": [1],\n        \"orders\": [\n            {\n                \"dish\": \"soup\",\n                \"cost\": 5.54\n            },\n            {\n                \"dish\": \"fanta\",\n                \"cost\": 3.33\n            }\n        ]\n    },\n    {\n        \"seats\": [2],\n        \"orders\": [\n            {\n                \"dish\": \"burger\",\n                \"cost\": 12.00\n            },\n            {\n                \"dish\": \"juce\",\n                \"cost\": 5.10\n            }\n        ]\n    },\n    {\n        \"seats\": [3],\n        \"orders\": [\n            {\n                \"dish\": \"salad\",\n                \"cost\": 6.40\n            },\n            {\n                \"dish\": \"tee\",\n                \"cost\": 2.80\n            }\n        ]\n    },\n        {\n        \"seats\": [4],\n        \"orders\": [\n            {\n                \"dish\": \"ice-cream\",\n                \"cost\": 1.40\n            },\n            {\n                \"dish\": \"water\",\n                \"cost\": 0.20\n            }\n        ]\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9093/order/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9093",
+					"path": [
+						"order",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bills",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bills\":[\n\t\t[1,2],\n    \t[3,4]\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9093/bills/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9093",
+					"path": [
+						"bills",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

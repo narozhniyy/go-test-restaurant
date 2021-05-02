@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    app:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      env_file:
+        - .env
+      ports:
+        - "9093:9093"
+      tty: true
+      restart: unless-stopped
+      networks:
+        - internal_network
+    mongo:
+      image: mongo
+      restart: unless-stopped
+      volumes:
+        - ./mongodb:/data/db
+      ports:
+        - "27017:27017"
+      networks:
+        - internal_network
+networks:
+  internal_network:
